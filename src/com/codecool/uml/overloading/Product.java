@@ -11,12 +11,11 @@ public class Product {
     private Currency defaultCurrency;
     private ProductCategory productCategory;
     private Supplier supplier;
-    private static List<Product> productList;
+    private static List<Product> productList = new ArrayList<>();
 
 
     Product(){
         id++;
-        productList.add(this);
     }
 
     public Product(String name, float defaultPrice, Currency defaultCurrency){
@@ -71,6 +70,7 @@ public class Product {
         this.supplier = supplier;
     }
 
+
     public static List<Product> getAllProductsBy(ProductCategory productCategory){
         List<Product> toReturn = new ArrayList<>();
         for (Product product: productList) {
@@ -97,10 +97,9 @@ public class Product {
         sb.append("name:"+getName()+",");
         sb.append("defaultPrice:"+getDefaultPrice()+",");
         sb.append("defaultCurrency:"+getDefaultCurrency()+",");
-        sb.append("productCategory:"+getProductCategory()+",");
-        sb.append("supplier:"+getSupplier());
+        sb.append("productCategory:"+getProductCategory().getName()+",");
+        sb.append("supplier:"+getSupplier().getName());
 
-        if (sb.length() > 0) sb.deleteCharAt(sb.length() - 1); // last space char
         return sb.toString();
     }
 }

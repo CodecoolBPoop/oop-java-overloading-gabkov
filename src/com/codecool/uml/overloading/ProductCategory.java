@@ -58,8 +58,6 @@ public class ProductCategory {
         sb.append("department:"+getDepartment()+",");
         sb.append("description:"+getDescription());
 
-
-        if (sb.length() > 0) sb.deleteCharAt(sb.length() - 1); // last space char
         return sb.toString();
     }
 }
